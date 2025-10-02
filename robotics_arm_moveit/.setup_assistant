@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: robotics_arm_description
+    relative_path: urdf/robotics_arm_with_gripper.urdf
+  srdf:
+    relative_path: config/robotics_arm.srdf
+  package_settings:
+    author_name: Brian Lai
+    author_email: brian_llh@hotmail.com
+    generated_timestamp: 1759420210
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
