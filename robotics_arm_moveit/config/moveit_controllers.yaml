@@ -4,10 +4,10 @@ moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControll
 
 moveit_simple_controller_manager:
   controller_names:
-    - 6dof_arm_controller
+    - arm_controller
     - gripper_controller
 
-  6dof_arm_controller:
+  arm_controller:
     type: FollowJointTrajectory
     joints:
       - joint_1
