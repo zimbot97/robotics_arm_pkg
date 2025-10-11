@@ -9,8 +9,9 @@
 
   <exec_depend>robotics_arm_description</exec_depend>
   <exec_depend>robotics_arm_moveit</exec_depend>
-  <!--exec_depend>robotics_arm_bringup</exec_depend-->
-
+  <exec_depend>robotics_arm_bringup</exec_depend>
+  <exec_depend>robotics_arm_control</exec_depend>
+  
   <export>
     <build_type>ament_cmake</build_type>
     <metapackage/>

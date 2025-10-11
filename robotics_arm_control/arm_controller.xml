@@ -1,0 +1,5 @@
+<library path="robotics_arm_control">
+    <class name="robotics_arm_control/RoboticsArm" type="robotics_arm::RoboticsArm" base_class_type="hardware_interface::SystemInterface">
+        <description> Robotics Arm Hardwarre Interface </description>
+    </class>
+</library>
