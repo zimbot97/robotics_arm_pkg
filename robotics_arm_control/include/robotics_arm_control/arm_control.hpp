@@ -2,11 +2,11 @@
 #define ARM_CONTROL_HPP
 
 #include <iostream>
-#include <fcntl.h>      // open()
-#include <termios.h>    // termios, tcgetattr(), tcsetattr()
-#include <unistd.h>     // read(), write(), close()
 #include <cstring>      // memset()
 #include <boost/asio.hpp>
+
+#include <atomic>
+#include <mutex>
 
 #include "pluginlib/class_list_macros.hpp"
 #include <rclcpp/rclcpp.hpp>
@@ -35,6 +35,7 @@ namespace robotics_arm
             virtual std::vector<hardware_interface::CommandInterface> export_command_interfaces() override;
             virtual hardware_interface::return_type read(const rclcpp::Time & time, const rclcpp::Duration & period) override;
             virtual hardware_interface::return_type write(const rclcpp::Time & time, const rclcpp::Duration & period) override;
+            void serial_read_loop();
 
         private:
             std::string port_;
@@ -44,6 +45,10 @@ namespace robotics_arm
             std::vector<double> position_states_;
             boost::asio::io_service io_service_;
             boost::asio::serial_port serial_port_;
+
+            std::thread serial_thread_;
+            std::mutex state_mutex_;
+            bool start_ros_;
     };
 
 }

@@ -56,7 +56,22 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        gripper:
+        gripper_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_inner_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -81,7 +96,17 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        link_5:
+        right_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_inner_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -101,6 +126,16 @@ Visualization Manager:
         All Enabled: true
         base_link:
           Value: true
+        end_effector_lin:
+          Value: true
+        gripper_base:
+          Value: true
+        left_finger:
+          Value: true
+        left_inner_link:
+          Value: true
+        left_knuckle:
+          Value: true
         link_1:
           Value: true
         link_2:
@@ -109,21 +144,36 @@ Visualization Manager:
           Value: true
         link_4:
           Value: true
-        link_5:
+        right_finger:
           Value: true
-      Marker Scale: 0.20000000298023224
+        right_inner_link:
+          Value: true
+        right_knuckle:
+          Value: true
+      Marker Scale: 0.07999999821186066
       Name: TF
       Show Arrows: true
       Show Axes: true
-      Show Names: false
+      Show Names: true
       Tree:
         base_link:
           link_1:
             link_2:
               link_3:
                 link_4:
-                  link_5:
-                    {}
+                  gripper_base:
+                    end_effector_lin:
+                      {}
+                    left_inner_link:
+                      {}
+                    left_knuckle:
+                      left_finger:
+                        {}
+                    right_inner_link:
+                      {}
+                    right_knuckle:
+                      right_finger:
+                        {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -141,25 +191,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.538013219833374
+      Distance: 0.5523509383201599
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: -0.0930468961596489
+        Y: -0.04197321832180023
+        Z: 0.21592357754707336
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.33000001311302185
+      Pitch: 0.22500033676624298
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.5
+      Yaw: 6.239994049072266
     Saved: ~
 Window Geometry:
   Displays:
