@@ -99,8 +99,8 @@
     <limit
       lower="0"
       upper="3.142"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
   </joint>
   <link
     name="link_2">
@@ -157,8 +157,8 @@
     <limit
       lower="0"
       upper="3.142"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
   </joint>
   <link
     name="link_3">
@@ -203,9 +203,6 @@
   <joint
     name="joint_3"
     type="revolute">
-    <!-- <origin
-      xyz="0 -0.033579 0"
-      rpy="0 -0.43322 3.1416" /> -->
     <origin
       xyz="0.0 0.025 -0.11"
       rpy="0 3.142 3.142" />
@@ -218,8 +215,8 @@
     <limit
       lower="0"
       upper="3.142"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
   </joint>
   <link
     name="link_4">
@@ -276,8 +273,8 @@
     <limit
       lower="0"
       upper="3.142"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
   </joint>
 
 
@@ -337,8 +334,8 @@
     <limit
       lower="0"
       upper="3.142"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
   </joint>
   
   <link
@@ -396,13 +393,13 @@
     <limit
       lower="0"
       upper="0.8"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
   </joint>
   <link
     name="right_finger">
     <inertial>
-      <origin
+       <origin
         xyz="-0.00979937596486929 0.00270099795344181 -3.55234022753059E-10"
         rpy="0 0 0" />
       <mass
@@ -454,8 +451,8 @@
     <limit
       lower="0"
       upper="0.8"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
     <mimic
       joint="gripper_joint"
       multiplier="1"
@@ -516,8 +513,8 @@
     <limit
       lower="0"
       upper="0.8"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
     <mimic
       joint="gripper_joint"
       multiplier="1"
@@ -578,8 +575,8 @@
     <limit
       lower="0"
       upper="0.8"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
     <mimic
       joint="gripper_joint"
       multiplier="1"
@@ -640,8 +637,8 @@
     <limit
       lower="0"
       upper="0.8"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
     <mimic
       joint="gripper_joint"
       multiplier="1"
@@ -702,8 +699,8 @@
     <limit
       lower="0"
       upper="0.8"
-      effort="0"
-      velocity="0" />
+      effort="1.0"
+      velocity="0.5" />
     <mimic
       joint="gripper_joint"
       multiplier="1"

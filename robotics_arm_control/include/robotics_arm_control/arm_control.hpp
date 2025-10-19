@@ -36,6 +36,7 @@ namespace robotics_arm
             virtual hardware_interface::return_type read(const rclcpp::Time & time, const rclcpp::Duration & period) override;
             virtual hardware_interface::return_type write(const rclcpp::Time & time, const rclcpp::Duration & period) override;
             void serial_read_loop();
+            double mapRange(double x, double in_min, double in_max, double out_min, double out_max, bool clamp = true);
 
         private:
             std::string port_;

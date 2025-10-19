@@ -127,7 +127,8 @@ hardware_interface::return_type RoboticsArm::write(const rclcpp::Time & time, co
     msg.append(std::to_string(joint5));
     msg.append(",");
 
-    int gripper = static_cast<int>(position_commands_[5]  * 180 / M_PI);
+    int gripper = static_cast<int>(mapRange(position_commands_[5], 0, 0.8, 100, 180));
+
     msg.append(std::to_string(gripper));
     msg.append("\n");
 
@@ -239,6 +240,16 @@ void RoboticsArm::serial_read_loop()
         }
     }
     RCLCPP_INFO(rclcpp::get_logger("RoboticsArm"), "Serial read loop exiting.");
+}
+
+double RoboticsArm::mapRange(double x, double in_min, double in_max, 
+    double out_min, double out_max, bool clamp) {
+    // Optionally clamp the input to stay within the source range
+    if (clamp)
+        x = std::clamp(x, in_min, in_max);
+
+    // Perform linear interpolation
+    return out_min + (x - in_min) * (out_max - out_min) / (in_max - in_min);
 }
 
 }// namespace robotics_arm

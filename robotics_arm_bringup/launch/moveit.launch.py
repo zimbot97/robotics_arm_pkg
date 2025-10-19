@@ -8,14 +8,12 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-
-    is_sim = LaunchConfiguration("is_sim")
-    
     is_sim_arg = DeclareLaunchArgument(
         "is_sim",
-        default_value="False"
+        default_value="True"
     )
 
+    is_sim = LaunchConfiguration("is_sim")
     moveit_config = (
         MoveItConfigsBuilder("robotics_arm", package_name="robotics_arm_moveit")
         .robot_description(file_path=os.path.join(
@@ -36,7 +34,8 @@ def generate_launch_description():
         output="screen",
         parameters=[moveit_config.to_dict(), 
                     {"use_sim_time": is_sim},
-                    {"publish_robot_description_semantic": True}],
+                    {"publish_robot_description_semantic": True},
+                    ],
         arguments=["--ros-args", "--log-level", "info"],
     )
 
@@ -57,6 +56,7 @@ def generate_launch_description():
             moveit_config.robot_description_semantic,
             moveit_config.robot_description_kinematics,
             moveit_config.joint_limits,
+            {"use_sim_time": is_sim}
         ],
     )
 

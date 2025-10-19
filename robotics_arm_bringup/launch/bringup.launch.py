@@ -11,6 +11,12 @@ from launch.substitutions import Command, FindExecutable
 
 
 def generate_launch_description():
+    
+    is_sim_arg = DeclareLaunchArgument(
+        "is_sim",
+        default_value="True"
+    )
+    is_sim = LaunchConfiguration("is_sim")
     pkg_share = FindPackageShare('robotics_arm_moveit').find('robotics_arm_moveit')
 
     # Load robot description
@@ -37,25 +43,65 @@ def generate_launch_description():
     joint_state_broadcaster_spawner = Node(
         package='controller_manager',
         executable='spawner',
+        parameters=[{
+            'use_sim_time': False
+        }],
         arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
+    )
+
+    robot_state_publisher_spawner = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        name="robot_state_publisher",
+        output="screen",
+        parameters=[{
+            "use_sim_time": is_sim,
+            "robot_description": robot_description,
+        }]
+    )
+
+    static_tf_node = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        name="world_to_base_tf",
+        arguments=["0", "0", "0", "0", "0", "0", "world", "base_link"]
     )
 
     arm_controller_spawner = Node(
         package='controller_manager',
         executable='spawner',
+        parameters=[{
+            'use_sim_time': False
+        }],
         arguments=['arm_controller', '--controller-manager', '/controller_manager'],
+    )
+
+    gripper_controller_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        parameters=[{
+            'use_sim_time': False
+        }],
+        arguments=['gripper_controller', '--controller-manager', '/controller_manager'],
     )
 
     # MoveIt (optional)
     moveit_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             FindPackageShare('robotics_arm_bringup'), '/launch/moveit.launch.py'
-        ])
+        ]),
+        launch_arguments={
+            'use_sim_time': is_sim,
+        }.items(),
     )
 
     return LaunchDescription([
+        is_sim_arg,
         control_node,
         joint_state_broadcaster_spawner,
+        robot_state_publisher_spawner,
+        static_tf_node,
         arm_controller_spawner,
+        gripper_controller_spawner,
         moveit_launch
     ])
