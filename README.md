@@ -49,7 +49,8 @@ Use this for **basic visualization and joint testing** in RViz:
 ros2 launch robotics_arm_bringup view_robot.launch.py
 ```
 
-🎥 **Demo Video:** [URDF Visualization & Joint Control (RViz)](https://www.youtube.com/watch?v=IXoSNhc9wtE)
+🎥 **Demo Video:** [URDF Visualization & Joint Control [![Watch the video](https://img.youtube.com/vi/IXoSNhc9wtE/maxresdefault.jpg)](https://www.youtube.com/watch?v=IXoSNhc9wtE)
+
 
 ---
 
@@ -61,7 +62,8 @@ Then launch:
 ros2 launch robotics_arm_bringup bringup.launch.py use_sim:=false
 ```
 
-🎥 **Demo Video:** [MoveIt Planning with Real Robotic Arm](https://www.youtube.com/watch?v=SRe8D7kJSTs)
+🎥 **Demo Video:** [MoveIt Planning with Real Robotic Arm][![Watch the video](https://img.youtube.com/vi/SRe8D7kJSTs/maxresdefault.jpg)](https://www.youtube.com/watch?v=SRe8D7kJSTs)
+
 
 ---
 
